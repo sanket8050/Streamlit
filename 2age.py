@@ -4,7 +4,9 @@ from datetime import datetime
 st.title("🎂 Age Calculator")
 
 # Ask user for DOB
-dob = st.date_input("Enter your Date of Birth")
+dob = st.date_input("Enter your Date of Birth"
+                    , min_value=datetime(1900, 1, 1),
+                    max_value=datetime.now())
 
 # Get current datetime
 now = datetime.now()
@@ -37,3 +39,8 @@ if st.button("Calculate Age"):
     st.write(f"Total days: {total_days}")
    
     st.balloons()
+
+with st.expander("help"):
+    st.write("This app calculates your age based on the date of birth you provide.")
+    st.write("It also gives you the total seconds, minutes, hours, and days since your birth.")
+    st.write("Click the button to see your age!")
